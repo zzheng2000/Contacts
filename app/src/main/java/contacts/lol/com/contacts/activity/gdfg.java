@@ -1,13 +1,16 @@
-package contacts.lol.com.contacts;
+package contacts.lol.com.contacts.activity;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 
-public class MainActivity extends ActionBarActivity {
+import contacts.lol.com.contacts.R;
+
+public class gdfg extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_gdfg);
     }
 }
