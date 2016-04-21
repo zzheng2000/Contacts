@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -74,6 +75,10 @@ public class PopupWindowDeleteContact extends PopupWindow {
 
         // 设置弹出窗体显示时的动画，从底部向上弹出
         this.setAnimationStyle(R.style.popup_delete);
+        //添加pop窗口关闭事件
 
     }
+
+
+
 }

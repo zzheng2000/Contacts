@@ -5,12 +5,15 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.PopupWindow;
 
 import contacts.lol.com.contacts.R;
 import contacts.lol.com.contacts.popupwindow.PopupWindowDeleteContact;
@@ -81,11 +84,29 @@ public class DetailActivity extends Activity {
         //Gravity.BOTTOM展示在底部
             takePhotoPopWin.showAtLocation(findViewById(R.id.ll_activity_detail), Gravity.BOTTOM, 0, 0);
 
-
+        backgroundAlpha(0.5f);
+        takePhotoPopWin.setOnDismissListener(new popOnDismissListener());
 
     }
+    public class popOnDismissListener implements PopupWindow.OnDismissListener {
+        @Override
+        public void onDismiss() {
+            // TODO Auto-generated method stub
+            //Log.v("List_noteTypeActivity:", "我是关闭事件");
+            backgroundAlpha(1f);
+        }
+    }
 
-
+    /**
+     * 设置添加屏幕的背景透明度
+     *
+     */
+    public void backgroundAlpha(float bgAlpha)
+    {
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.alpha = bgAlpha; //0.0-1.0
+        getWindow().setAttributes(lp);
+    }
 
 
     /*
@@ -142,4 +163,33 @@ public class DetailActivity extends Activity {
 
         }
     }
+
+//调用系统打电话
+    public void ll_jumpSysPhoneCall(View view){
+        // TODO Auto-generated method stub
+        //获取编辑框内输入的目标电话号码
+       // String number = text.getText().toString();
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.CALL");
+        intent.addCategory("android.intent.category.DEFAULT");
+        //指定要拨打的电话号码
+        intent.setData(Uri.parse("tel:" + 123456));
+        startActivity(intent);
+
+    }
+    //调用系统发短信
+    public void ll_jumpSysSMS(View view){
+        Uri smsToUri = Uri.parse("smsto:10086");
+        Intent mIntent = new Intent( android.content.Intent.ACTION_SENDTO, smsToUri );
+        mIntent.putExtra("sms_body", "The SMS text");
+        startActivity( mIntent );
+
+    }
+
+    public void btn_return(View view){
+        finish();
+
+    }
+
+
 }

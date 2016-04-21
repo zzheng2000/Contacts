@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:roundedimageview="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_activity_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
-    tools:context="com.example.addressbook.Test_Activity1"
-    android:id="@+id/ll_activity_detail">
+    tools:context="com.example.addressbook.Test_Activity1">
 
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#1000"
+
+        android:background="#00bbd2"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/bt_cancel"
+            android:id="@+id/btn_return"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-       android:textColor="#000"
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             android:text="返回"
+            android:onClick="btn_return"
+            android:textColor="#000"
             android:textSize="15sp" />
         <!-- 取消button自带阴影效果-->
 
@@ -48,53 +50,58 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:background="#5000"/>
+        android:background="#5000" />
 
     <LinearLayout
         android:id="@+id/rl_pic_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
 
+        android:paddingTop="10dp"
         android:orientation="horizontal">
-
-
-        <ImageButton
-            android:id="@+id/ib_add_pic"
-            android:layout_width="161dp"
-            android:layout_height="120dp"
-            android:layout_gravity="right|bottom"
-            android:layout_margin="10dp"
-            android:background="#D4D4D4"
-            android:scaleType="fitXY"
-            android:layout_weight="1"/>
 
         <LinearLayout
             android:id="@+id/ll_name"
+            android:layout_width="237dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv_head_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/default_logo"
+                roundedimageview:riv_oval="true"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+
             android:layout_width="237dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
-                android:layout_marginTop="10dp"
-                android:id="@+id/tv_name1"
+                android:id="@+id/tv_name"
                 style="@style/AttrName"
-                android:text="令狐冲"
-                android:gravity="center"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:textSize="17sp"
-                />
-
+                android:gravity="center"
+                android:text="令狐冲"
+                android:textSize="17sp" />
 
 
             <TextView
-                android:id="@+id/tv_name2"
+                android:id="@+id/tv_phone"
                 style="@style/AttrName"
                 android:layout_weight="1"
                 android:text="手机 : 123-9456-0789"
-                android:textSize="17sp"/>
-
+                android:textSize="17sp" />
 
 
         </LinearLayout>
@@ -103,9 +110,10 @@
 
     <LinearLayout
         android:id="@+id/ll_phone"
-        style="@style/LinearItem"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:orientation="horizontal"
-
+        android:gravity="center_vertical"
 
         >
 
@@ -114,25 +122,26 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:onClick="ll_jumpSysPhoneCall"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:paddingLeft="30dp"
+
                 android:src="@drawable/phone1" />
 
-            <Button
-                style="?android:attr/borderlessButtonStyle"
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
 
                 android:paddingLeft="10dp"
                 android:text="通话"
-                android:textColor="#000"
                 android:textAlignment="2"
+                android:textColor="#000"
 
                 android:textSize="15sp" />
         </LinearLayout>
@@ -143,6 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:onClick="ll_jumpSysSMS"
             android:orientation="horizontal">
 
             <ImageView
@@ -152,9 +162,9 @@
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/sms" />
 
-            <Button
+            <TextView
                 android:id="@+id/btn_sms"
-                style="?android:attr/borderlessButtonStyle"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -180,10 +190,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1sp"
-            android:background="#5000"
             android:layout_marginLeft="13dp"
             android:layout_marginRight="13dp"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="40dp"
+            android:background="#5000" />
     </LinearLayout>
 
     <LinearLayout
@@ -198,10 +208,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1sp"
-            android:background="#5000"
             android:layout_marginLeft="13dp"
             android:layout_marginRight="13dp"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="40dp"
+            android:background="#5000" />
     </LinearLayout>
 
     <LinearLayout
@@ -216,21 +226,21 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1sp"
-            android:background="#5000"
             android:layout_marginLeft="13dp"
             android:layout_marginRight="13dp"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="40dp"
+            android:background="#5000" />
     </LinearLayout>
 
 
     <LinearLayout style="@style/LinearItem">
 
         <Button
+            android:id="@+id/btn_delete"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-android:id="@+id/btn_delete"
             android:text="删除联系人"
 
             android:textColor="#c00"
