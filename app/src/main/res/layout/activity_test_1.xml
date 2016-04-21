@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#606060"
+    tools:context="com.example.addressbook.Test_Activity1"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#707070"
+        >
+        <Button
+            android:id="@+id/bt_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textColor="#E8E8E8"
+            android:textSize="25sp"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            style="?android:attr/borderlessButtonStyle"
+            /><!-- 取消button自带阴影效果-->
+
+        <Button
+            android:id="@+id/bt_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存"
+            android:textColor="#E8E8E8"
+            android:textSize="25sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            style="?android:attr/borderlessButtonStyle"
+            /><!-- 取消button自带阴影效果-->
+    </RelativeLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/rl_pic_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#707070"
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal"
+        >
+
+
+
+        <ImageButton
+            android:id="@+id/ib_add_pic"
+            android:layout_width="161dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:scaleType="fitXY"
+            android:background="#D4D4D4"
+            android:layout_gravity="right|bottom" />
+
+        <LinearLayout
+            android:id="@+id/ll_name"
+            android:layout_width="237dp"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_name1"
+                style="@style/AttrName"
+                android:text="姓："
+
+                />
+            <EditText
+                android:id="@+id/et_name1"
+                style="@style/AttrEdit"
+                />
+            <TextView
+                android:id="@+id/tv_name2"
+                android:text="名："
+                style="@style/AttrName"
+                />
+            <EditText
+                android:id="@+id/et_name2"
+                style="@style/AttrEdit"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_phone"
+        style="@style/LinearItem"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:id="@+id/tv_phone"
+            style="@style/AttrName"
+            android:text="手机："
+            />
+        <EditText
+            android:id="@+id/et_phone"
+            style="@style/AttrEdit"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_email"
+        style="@style/LinearItem"
+        >
+        <TextView
+            android:id="@+id/tv_email"
+            style="@style/AttrName"
+            android:text="邮箱："
+            />
+        <EditText
+            android:id="@+id/et_email"
+            style="@style/AttrEdit"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_love"
+        style="@style/LinearItem"
+        >
+        <TextView
+            android:id="@+id/tv_love"
+            style="@style/AttrName"
+            android:text="关系亲密度："
+            />
+        <EditText
+            android:id="@+id/et_love"
+            style="@style/AttrEdit"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_address"
+        style="@style/LinearItem"
+        >
+        <TextView
+            android:id="@+id/tv_address"
+            style="@style/AttrName"
+            android:text="通讯地址："
+            />
+        <EditText
+            android:id="@+id/et_address"
+            style="@style/AttrEdit"
+            />
+    </LinearLayout>
+</LinearLayout>

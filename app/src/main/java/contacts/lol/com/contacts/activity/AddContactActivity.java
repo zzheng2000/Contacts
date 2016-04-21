@@ -11,6 +11,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -27,6 +29,17 @@ public class AddContactActivity extends Activity {
     private static final int CROP_PHOTO = 102;
     private File tempFile;
     ImageView iv_head_icon;
+    private ImageView iv_minus;
+    private Button btn_return;
+    private ImageView iv_plus;
+    private Button btn_save;
+    private EditText et_address;
+    private EditText et_emnail;
+    private EditText et_lastname;
+    private EditText et_firstname;
+    private EditText et_intimacy;
+    private EditText et_phone;
+
     //用于截图
 
     @Override
@@ -35,19 +48,27 @@ public class AddContactActivity extends Activity {
         setContentView(R.layout.activity_add_contact);
         initView();
         initData(savedInstanceState);
+
     }
 
 
 
 
 
-
-
-
     private void initView() {
-
-
+        iv_minus = (ImageView) findViewById(R.id.iv_minus);
+        iv_plus = (ImageView) findViewById(R.id.iv_plus);
+        btn_return = (Button) findViewById(R.id.btn_return);
+        btn_save = (Button) findViewById(R.id.btn_save);
         iv_head_icon = (ImageView) findViewById(R.id.iv_head_icon);
+        et_lastname = (EditText) findViewById(R.id.et_lastname);
+        et_firstname = (EditText) findViewById(R.id.et_firstname);
+        et_intimacy = (EditText) findViewById(R.id.et_intimacy);
+        et_phone = (EditText) findViewById(R.id.et_phone);
+        et_emnail = (EditText) findViewById(R.id.et_emnail);
+        et_address = (EditText) findViewById(R.id.et_address);
+
+
 
         iv_head_icon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,18 +77,53 @@ public class AddContactActivity extends Activity {
             }
         });
 
+        btn_return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //调用数据库保存接口
+                finish();
+            }
+        });
+
+        //亲密度
+        iv_minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+        iv_plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 
 
     private void initData(Bundle savedInstanceState) {
-        if (savedInstanceState != null && savedInstanceState.containsKey("tempFile")) {
-            tempFile = (File) savedInstanceState.getSerializable("tempFile");
-        }else{
-            tempFile = new File(checkDirPath(Environment.getExternalStorageDirectory().getPath()+"/clipHeaderLikeQQ/image/"),
-                    System.currentTimeMillis() + ".jpg");
-        }
+
+
+        //从数据库初始化数据
+
+
+
+    if (savedInstanceState != null && savedInstanceState.containsKey("tempFile")) {
+        tempFile = (File) savedInstanceState.getSerializable("tempFile");
+    }else{
+        tempFile = new File(checkDirPath(Environment.getExternalStorageDirectory().getPath()+"/clipHeaderLikeQQ/image/"),
+                System.currentTimeMillis() + ".jpg");
     }
+}
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -183,5 +239,7 @@ public class AddContactActivity extends Activity {
         }
         return dirPath;
     }
+
+
 
 }
